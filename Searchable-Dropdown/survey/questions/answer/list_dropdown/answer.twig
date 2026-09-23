@@ -22,7 +22,7 @@
 <div class="mb-3 row g-1 align-items-center {{ coreClass }}">
     <div class="col-auto">
         <select
-                class="form-select form-control list-question-select"
+                class="form-select form-control list-question-select searchable-dropdown-select"
                 name="{{ name }}"
                 id="answer{{ name }}"
                 {% if dropdownSize %} size={{ dropdownSize }} {% endif %}
@@ -43,16 +43,5 @@
     }}
 </div>
 
-{# registerPackage('bootstrap-select2') #}
-{{ registerPackage('select2') }}
-{# registerPackage('select2-bootstrap-5-theme') #}
-
-<script type="text/javascript" charset="utf-8">
-
-	$(document).on('ready pjax:scriptcomplete',function(){
-		
-		initSSD('{{name}}'); 
-		
-	});
-</script>
+{{ registerPackage('select2-bootstrap') }}
 <!-- end of answer  -->

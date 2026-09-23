@@ -1,30 +1,44 @@
 
-/***** 
-    JS for the Multiple-Choice-Dropdown question theme (LS version 6.0)
+/*****
+	JS for the Searchable Dropdown question theme (LimeSurvey 7)
     Copyright (C) 2023 - Tony Partner (http://partnersurveys.com)
     Licensed MIT, GPL
-    Version - 1.0
+	Version - 2.0.0
     Create date - 20/01/2023
 *****/
 
-console.trace = function() {};
+(function($) {
+	'use strict';
 
-function initSSD(sgq) {
-	
-	var sgqArr = sgq.split('X');
-	var qID = sgqArr[2];
-	var thisQuestion = $('#question'+qID);
-	
-	// Initiate select2
-	$('select.form-control', thisQuestion).select2({
-		theme: 'bootstrap-5'
-	});
-	
-	// Fix bug - search field not focussed
-	$(document).on('select2:open', function(e) {
-		document.querySelector('.select2-search__field').focus();
-	});
-}
+	var selectSelector = 'select.searchable-dropdown-select';
 
-$(document).on('ready pjax:scriptcomplete',function(){
-});
+	function initSearchableDropdowns() {
+		$(selectSelector).each(function() {
+			var $select = $(this);
+
+			if ($select.hasClass('select2-hidden-accessible')) {
+				return;
+			}
+
+			$select.select2({
+				theme: 'bootstrap-5'
+			});
+		});
+	}
+
+	$(initSearchableDropdowns);
+
+	$(document)
+		.off('pjax:scriptcomplete.searchableDropdown')
+		.on('pjax:scriptcomplete.searchableDropdown', initSearchableDropdowns)
+		.off('select2:open.searchableDropdown', selectSelector)
+		.on('select2:open.searchableDropdown', selectSelector, function() {
+			var searchField = document.querySelector(
+				'.select2-container--open .select2-search__field'
+			);
+
+			if (searchField) {
+				searchField.focus();
+			}
+		});
+})(jQuery);

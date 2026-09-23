@@ -5,26 +5,28 @@
         <type>question_theme</type>
         <title>Searchable Dropdown</title>
         <creationDate>2019-10-23 08:00</creationDate>
-        <last_update>2023-01-19 08:01</last_update>
+        <last_update>2026-09-23</last_update>
         <author>Tony Partner</author>
         <authorUrl>http://partnersurveys.com</authorUrl>
         <supportUrl>None</supportUrl>
         <license>GNU General Public License version 2 or later</license>
-        <version>1.0</version>
+        <version>2.0.0</version>
         <apiVersion>1</apiVersion>
-        <lastSecurityUpdate>1.0</lastSecurityUpdate>
-        <description>Replace a single-choice drop-down with a searchable drop-down. Uses the select2 platform - https://select2.org/.</description>		
+        <lastSecurityUpdate>2.0.0</lastSecurityUpdate>
+        <description>Replace a LimeSurvey 7 single-choice dropdown with a searchable Select2 dropdown.</description>
         <questionType>!</questionType>
         <group>Single choice questions</group>
-        <answerscales>0</answerscales>
+        <subquestions>0</subquestions>
+        <other>1</other>
+        <answerscales>1</answerscales>
         <hasdefaultvalues>1</hasdefaultvalues>
         <assessable>1</assessable>
         <class>list-dropdown</class>
-    <subquestions>0</subquestions></metadata>
+    </metadata>
 
     <compatibility>
-        <version>6.0</version>
-    <version>5.0</version><version>5.0</version><version>5.0</version><version>5.0</version></compatibility>
+        <version>7.0</version>
+    </compatibility>
 
     <!--
         Here the list of the css/js files to load.
@@ -32,15 +34,13 @@
     -->
     <files>
         <css>
-            <filename>css/select2-bootstrap-5-theme.css</filename>
-            <filename>css/select2-bootstrap-5-theme.rtl.css</filename>
             <filename>css/ssd.css</filename>
         </css>
         <js>
             <filename>scripts/ssd.js</filename>
         </js>
 		<preview>
-			<filename>images/ssd_6x_1.png</filename>
+            <filename></filename>
 		</preview>
     </files>
 
@@ -76,4 +76,4 @@
         <show_as_template>true</show_as_template>
         <show_as_question_type>true</show_as_question_type>
     </engine>
-<compatibility><version/></compatibility></config>
+</config>
